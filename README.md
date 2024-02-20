@@ -17,7 +17,7 @@ samples, guidance on mobile development, and a full API reference.
 
 
 
-
+State management - Provider
 1. we can add tasks
 2. we can check off when task is completed by clicking on boxes
 3. we can delete taks no longer required by longpressing them!
