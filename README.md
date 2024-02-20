@@ -14,3 +14,15 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+
+
+1. we can add tasks
+2. we can check off when task is completed by clicking on boxes
+3. we can delete taks no longer required by lonpressing them!
+
+
+
+
+![image](https://github.com/SahilRaut14/todoAPP/assets/100335359/bc5ebf19-c332-48ce-94c0-4fd1e1e9c9d3)
