@@ -16,9 +16,9 @@ class TaskScreen extends StatelessWidget {
             context: context,
             isScrollControlled: true,
             builder: (context) {
-              return  SingleChildScrollView(
+              return const SingleChildScrollView(
                   padding: EdgeInsets.only(bottom: 10.0),
-                  child: BottomSheetScreen());  
+                  child: BottomSheetScreen());
             },
           );
         },
@@ -59,10 +59,7 @@ class TaskScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       color: Colors.white),
                 ),
-                Text(
-                  
-                  
-                  '${Provider.of<CommonBox>(context).taskCount} Tasks',
+                Text('${Provider.of<CommonBox>(context).taskCount} Tasks',
                     style:
                         const TextStyle(color: Colors.white, fontSize: 18.0)),
               ],
@@ -94,39 +91,23 @@ class TaskList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder
-    (itemBuilder: (context, index){
-      return TaskTile( 
-        taskTitle: Provider.of<CommonBox>(context).tasks[index].name,
-        isChecked: Provider.of<CommonBox>(context).tasks[index].isDone);
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        final taskTrueContext = Provider.of<CommonBox>(context);
+        final taskFalseContext = Provider.of<CommonBox>(context, listen: false);
 
-    },
-    itemCount: Provider.of<CommonBox>(context).taskCount,
+        return TaskTile(
+          taskTitle: taskTrueContext.tasks[index].name,
+          isChecked: taskTrueContext.tasks[index].isDone,
+          checkBoxCallBack: (checkBoxState) {
+            taskFalseContext.updateTask(taskFalseContext.tasks[index]);
+          },
+          longPressCallBack: () {
+            taskFalseContext.deleteTask(taskFalseContext.tasks[index]);
+          },
+        );
+      },
+      itemCount: Provider.of<CommonBox>(context).taskCount,
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

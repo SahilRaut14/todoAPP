@@ -10,13 +10,23 @@ class CommonBox extends ChangeNotifier {
   ];
 
   int get taskCount {
+    //this is a getter for tasks length
     return tasks.length;
   }
 
-  void addTask( String newTaskTitle){
-
+  void addTask(String newTaskTitle) {
     final task = Task(name: newTaskTitle);
     tasks.add(task);
     notifyListeners();
   }
-   }
+
+  void updateTask(Task task) {
+    task.toggleDone();
+    notifyListeners();
+  }
+
+  void deleteTask(Task task) {
+    tasks.remove(task);
+    notifyListeners();
+  }
+}
